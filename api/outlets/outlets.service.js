@@ -130,28 +130,28 @@ module.exports = {
       }
     );
   },
-
   updateOutletDetail: async (data, callBack) => {
+    console.log("data", data);
     const pool = await poolPromise;
     const queryResult = await pool
       .request()
-      .input("lat", sql.VarChar, data.lat)
-      .input("long", sql.VarChar, data.long)
-      .input("buyfrom1", sql.VarChar, data.buyfrom1)
-      .input("buyfrom2", sql.VarChar, data.buyfrom2)
-      .input("status", sql.VarChar, data.status)
-      .input("outlEnabled", sql.VarChar, data.outlEnabled)
-      .input("outlTel", sql.VarChar, data.outlTel)
-      .input("outlMobile", sql.VarChar, data.outlMobile)
-      .input("type", sql.VarChar, data.type)
-      .input("typeDesc", sql.VarChar, data.typeDesc)
-      .input("provinceID", sql.VarChar, data.provinceID)
-      .input("outlZipcode", sql.VarChar, data.outlZipcode)
-      .input("address", sql.VarChar, data.address)
-      .input("amphur", sql.VarChar, data.amphur)
-      .input("tumbon", sql.VarChar, data.tumbon)
-      .input("outlId", sql.VarChar, data.outlId)
-      .input("UpdateBy", sql.VarChar, data.UpdateBy)
+      .input("lat", sql.NVarChar, data.lat)
+      .input("long", sql.NVarChar, data.long)
+      .input("buyfrom1", sql.NVarChar, data.buyfrom1)
+      .input("buyfrom2", sql.NVarChar, data.buyfrom2)
+      .input("status", sql.NVarChar, data.status)
+      .input("outlEnabled", sql.NVarChar, data.outlEnabled)
+      .input("outlTel", sql.NVarChar, data.outlTel)
+      .input("outlMobile", sql.NVarChar, data.outlMobile)
+      .input("type", sql.NVarChar, data.type)
+      .input("typeDesc", sql.NVarChar, data.typeDesc)
+      .input("provinceID", sql.NVarChar, data.provinceID)
+      .input("outlZipcode", sql.NVarChar, data.outlZipcode)
+      .input("address", sql.NVarChar, data.address)
+      .input("amphur", sql.NVarChar, data.amphur)
+      .input("tumbon", sql.NVarChar, data.tumbon)
+      .input("outlId", sql.NVarChar, data.outlId)
+      .input("UpdateBy", sql.NVarChar, data.UpdateBy)
       .query(
         `DECLARE	@RetMessage nvarchar(100)
         Exec spUpdateOutl @lat = @lat , @long = @long , @buyfrom1 = @buyfrom1 ,

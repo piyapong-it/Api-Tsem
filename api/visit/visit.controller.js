@@ -10,7 +10,10 @@ const {
     updateVisitEOE,
     updateVisitAgenda,
     updateVisitCallCard,
-    deleteVisitCallCard
+    deleteVisitCallCard,
+    deleteVisitEoE,
+    insertVisitEoE,
+    getVisitEoEAll
 } = require("./visit.service");
 
 module.exports={
@@ -150,6 +153,36 @@ module.exports={
                 return res.send(JSON.stringify({ success: false, message: err.message,result:[] }));
             }
             return  res.send(JSON.stringify({ success: true, message: results.recordset[0].RetMessage, result: []}));
+        });
+    },
+    deleteVisitEoE: (req, res) => {
+        const body = req.body;
+        deleteVisitEoE(body, (err, results) => {
+            if (err) {
+                console.log(err);
+                return res.send(JSON.stringify({ success: false, message: err.message,result:[] }));
+            }
+            return  res.send(JSON.stringify({ success: true, message: results.recordset[0].RetMessage, result: []}));
+        });
+    },
+    insertVisitEoE: (req, res) => {
+        const body = req.body;
+        insertVisitEoE(body, (err, results) => {
+            if (err) {
+                console.log(err);
+                return res.send(JSON.stringify({ success: false, message: err.message,result:[] }));
+            }
+            return  res.send(JSON.stringify({ success: true, message: results.recordset[0].RetMessage, result: []}));
+        });
+    },
+    getVisitEoEAll: (req, res) => {
+        const body = req.body;
+        getVisitEoEAll(body, (err, results) => {
+            if (err) {
+                console.log(err);
+                return res.send(JSON.stringify({ success: false, message: err.message,result:[] }));
+            }
+            return  res.send(JSON.stringify({ success: true, message: "Total Record is " + results.recordset.length, result: results.recordset }));
         });
     },
 }

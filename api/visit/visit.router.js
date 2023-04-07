@@ -10,7 +10,10 @@ const {
    updateVisitAgenda,
    updateVisitEoE,
    updateVisitCallCard,
-   deleteVisitCallCard
+   deleteVisitCallCard,
+   deleteVisitEoE,
+   insertVisitEoE,
+   getVisitEoEAll
 } = require("./visit.controller");
 
 const routerVisit = require("express").Router();
@@ -28,5 +31,9 @@ routerVisit.post("/updateVisitAgenda/", checkToken, updateVisitAgenda);
 routerVisit.post("/updateVisitEoE/", checkToken, updateVisitEoE);
 routerVisit.post("/updateVisitCallCard/", checkToken, updateVisitCallCard);
 routerVisit.post("/deleteVisitCallCard/", checkToken, deleteVisitCallCard);
+// new routing
+routerVisit.post("/getVisitEoEAll/", getVisitEoEAll);
+routerVisit.post("/deleteVisitEoE/", deleteVisitEoE);
+routerVisit.post("/insertVisitEoE/",  insertVisitEoE);
 
 module.exports = routerVisit;

@@ -15,6 +15,8 @@ module.exports = {
             );
     },
     getProductByVisitId: async (own,visitid, callBack) => {
+        console.log(own, 'own')
+        console.log(visitid, 'visitid')
         const pool = await poolPromise
         const queryResult = await pool.request()
             .input('Own', sql.NVarChar, own)

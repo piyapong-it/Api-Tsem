@@ -35,7 +35,7 @@ routerOutlet.get(
 );
 // new
 routerOutlet.post("/getOutletTypeStatus", checkToken, getOutletTypeStatus);
-routerOutlet.post("/getOutletAll", checkToken, getOutletAll);
+routerOutlet.get("/getOutletAll", getOutletAll);
 routerOutlet.post("/updateOutletDetail", updateOutletDetail);
 
 module.exports = routerOutlet;
